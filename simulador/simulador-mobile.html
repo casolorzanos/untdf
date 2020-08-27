@@ -1,0 +1,440 @@
+<html>
+
+<head>
+	<title>Simulación de una Epidemia</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164372853-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-164372853-1');
+	</script>
+
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Calibri:400,700,400italic,700italic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+	<link rel="icon" href="../square.png">
+
+	<style>
+		/* #universidades {
+			    position: absolute;
+			    font-size: 15px;
+			    font-family: raleway, sans-serif;
+			    color: white;
+			    top: 1em;
+			    left: 1em;
+			} */
+
+		#parameterfractionInfectedInitiallydivBox {
+			display: none !important;
+		}
+
+		#infoH {
+			display: none !important;
+		}
+
+		#parametersH {
+			height: 60% !important;
+		}
+
+		div#graphY {
+			z-index: 999;
+			color: white;
+			left: 0;
+			top: 30%;
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			font-size: 14px;
+			font-family: sans-serif;
+			transform: rotate(-90deg);
+		}
+
+		div#graphX {
+			z-index: 999;
+			color: white;
+			right: 50%;
+			bottom: -4em;
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			font-size: 14px;
+			font-family: sans-serif;
+		}
+
+		/* #caseTypeName {
+			    font-size: 1.2em !important;
+			    color: white !important;
+			    line-height: 1em;
+			} */
+
+		/* #caseTypeNameH {
+			    color: white !important;
+			    height: 70px !important;
+			    margin-top: -15px !important;
+			    overflow: hidden !important;
+			} */
+
+		#upperLayer {
+			box-shadow: none !important;
+			border: none !important;
+		}
+
+		:root {
+			--themeblue: hsla(196, 100%, 50%, 1);
+			--themeviolet: hsla(280, 100%, 50%, 1);
+			--themeorange: hsla(32, 100%, 50%, 1);
+			--boundaryorange: hsla(32, 100%, 50%, 0.6);
+			--themegrey: hsla(32, 0%, 70%, 0.6);
+
+			--themeinfected: hsla(0, 59%, 50%, 1);
+		}
+
+		.inputButDiv:focus {
+			outline: none !important;
+			border: 0px solid black;
+		}
+	</style>
+
+	<style id="sliderStyleH" type="text/css">
+		a {
+			cursor: pointer;
+		}
+
+		.standardSlider {
+			-webkit-appearance: none;
+			border-radius: 5px;
+			outline: none;
+			-webkit-transition: .2s;
+			transition: opacity .2s;
+		}
+
+		.standardSlider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: hsla(200, 100%, 50%, 1);
+			cursor: pointer;
+		}
+
+		.standardSlider::-moz-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: hsla(200, 100%, 50%, 1);
+			cursor: pointer;
+		}
+
+		/*.timesliderClass {
+				-webkit-appearance: none;
+				border-radius: 5px;
+				outline: none;
+				opacity: 0.7;
+				-webkit-transition: .2s;
+				transition: opacity .2s;
+				cursor: pointer;
+			}*/
+		/*.timesliderClass::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 22px;
+				height: 22px;
+				border-radius: 50%; 
+				background: hsla(200, 100%, 50%, 1);
+				cursor: pointer;
+			}
+			.timesliderClass::-moz-slider-thumb {
+				appearance: none;
+				width: 22px;
+				height: 22px;
+				border-radius: 50%; 
+				background: hsla(200, 100%, 50%, 1);
+				cursor: pointer;
+			}*/
+
+
+		/*#parametersListH::-webkit-scrollbar {
+				width: 1%;
+			}
+			#parametersListH::-webkit-scrollbar-track {
+				-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+				border-radius: 30px;
+			}
+			#parametersListH::-webkit-scrollbar-thumb {
+				background-color: hsla(190, 100%, 50%, 1);
+				border-radius: 50px;
+				/*outline: 1px solid slategrey;
+			}*/
+
+		body::-webkit-scrollbar {
+			width: 5px;
+		}
+
+		body::-webkit-scrollbar-track {
+			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+			border-radius: 30px;
+		}
+
+		body::-webkit-scrollbar-thumb {
+			background-color: black;
+			border-radius: 50px;
+			/*outline: 1px solid slategrey;*/
+		}
+
+		#fileinputBack::focus {
+			outline: none;
+		}
+
+		#savebutton::focus {
+			outline: none;
+		}
+
+		#savebuttonH::focus {
+			outline: none;
+		}
+
+		input:invalid {
+			box-shadow: 0 0 0px hsla(0, 0%, 0%, 0);
+		}
+	</style>
+
+
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+	</script>
+
+
+
+	<script type="application/ld+json">
+		{
+			"@type": "Simulation",
+			"name": "Simulación Epidemiológica",
+			"author": "Prajwal DSouza",
+			"description": "An interactive based on a 3Blue1Brown video."
+		}
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="description" content="An interactive based on a 3Blue1Brown video.">
+	<meta name="keywords"
+		content="epidemic, coronavirus, simulation, SIR model, sir model, prajwalsouza, Prajwal DSouza, Grant Sanderson, simulating an epidemic">
+	<meta name="author" content="Prajwal DSouza">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="container-fluid" style="background-color: #f7f7f9">
+
+	<div class="row" style="background-color: #f0ad4e;">
+
+		<div class="pos-f-t">
+			<div class="collapse" id="navbarToggleExternalContent">
+				<div id="parametersH">
+					<div id="gradfillParameters"></div>
+						<div id="parametersListH" class="container-fluid tex-center">
+
+						</div>
+				</div>
+			</div>
+			<nav class="navbar navbar-dark">
+				<div class="row">
+					<div class="col-3">
+						<button class="navbar-toggler" type="button" data-toggle="collapse"
+							data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+							aria-expanded="false" aria-label="Toggle navigation">
+
+
+							<span class="navbar-toggler-icon"></span>
+					</div>
+					<div class="col-9">
+						<h6 id="universidades" class="w-100 text-light">UNTDF & UTN - Simulación interactiva de una
+							Epidemia
+						</h6>
+					</div>
+				</div>
+
+
+				</button>
+		</div>
+		</nav>
+	</div>
+
+	</div>
+	<div class="row bg-secondary text-light" id="caseTypeNameH">
+		<span id="caseTypeName">Caso Simple: <small>una ciudad o pueblo, sin contacto con otras
+				poblaciones.</small></span>
+	</div>
+	<div class="row text-white" id="containAll">
+		<div class="row">
+			<div id="MainBlock1" class="col-lg-6 col-sm-6 col-xs-12">
+				<div id="plotGraphH" class="bg-secondary" style=" width: 100%; height: 200px; overflow: hidden;position: relative; z-index: 1; display: inline-block;">
+					<div id="graphY">% Población</div>
+					<div id="graphX">Días</div>
+				</div>
+				<!-- <div id="accordion">
+					<div class="card" style="background-color: #f0ad4e;">
+						<div class="card-header" id="headingOne">
+							<h6 class="mb-0">
+								<button class="btn btn-link w-100" data-toggle="collapse" data-target="#collapseOne"
+									aria-expanded="true" aria-controls="collapseOne">
+									<div id="parametersTitleText">
+										<span class="text-white">PARÁMETROS</span>
+									</div>
+								</button>
+							</h6>
+						</div>
+
+						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+							data-parent="#accordion">
+							<div class="card-body">
+								<div id="parametersH">
+									<div id="gradfillParameters"></div>
+									<small>
+										<div id="parametersListH" class="container tex-right">
+
+										</div>
+									</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+
+				<div id="MainBlock2" class="col-lg-6 col-sm-6 col-xs-12">
+					<div id="upperLayer" hidden>
+						<!-- <span id="R_0" style="font-size: 1vmax; color: white; font-family: Source Sans Pro;">R : 0.1</span>
+						<span id="R_0-Info" style="font-size: 0.7vmax; color: grey; font-family: Source Sans Pro; float: right; top: 80%;">Reproductive Number Calculation here is a little different from the 3B1B video. <br/>Here, its Average(Number of individuals infected by one infected individual)</span> -->
+					</div>
+					<div class="row" style="height: 20em;">
+						<div class="col-12 bg-secondary">
+							<div id="simpleCaseGraphH"
+								style="width: 100%; height: 100%; overflow: hidden;position: absolute; z-index: 1;display: inline-block;">
+							</div>
+							<div id="centralLocationCaseGraphH"
+								style="width: 100%; height: 100%; visibility: hidden; overflow: hidden;position: absolute; z-index: 1;display: inline-block;">
+							</div>
+							<div id="communitiesCaseGraphH"
+								style="width: 100%; height: 100%; visibility: hidden; overflow: hidden;position: absolute; z-index: 1;display: inline-block;">
+							</div>
+							<div id="simpleCaseGraph&QH"
+								style="width: 100%; height: 100%; visibility: hidden; overflow: hidden;position: absolute; z-index: 1; display: inline-block;">
+							</div>
+							<div id="centralLocationQuarantineCaseGraphH"
+								style="width: 100%; height: 100%; visibility: hidden; overflow: hidden;position: absolute; z-index: 1; display: inline-block;">
+							</div>
+							<div id="communitiesQuarantineCaseGraphH"
+								style="width: 100%; height: 100%; visibility: hidden; overflow: hidden;position: relative; z-index: 1; display: inline-block;">
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="row my-auto">
+						<div id="quarantineH" class="text-center align-self-center w-100">
+							<input onChange="handleQClick(event)" type="checkbox" id="quarantinecheck"
+								name="quarantinecheck" value="quarantinecheck"><label id="quarantinecheckLabel"
+								for="quarantinecheck"
+								style="color: var(--themeinfected); font-size: 2 vmax; font-weight: bold;">Con medidas del sistema de salud?</label>
+						</div>
+					</div>
+					<div id="caseTypeChooseH" class="row">
+						<div id="simpleCaseoptionH" class="col-4 p-0">
+							<input onClick="handleConfigChange(event)" id='simpleCaseoption' value='Simple' list="brow"
+								style="width: 100%; height: 100%;  font-family: Source Sans Pro; font-weight: bold; text-align: center;font-size: 1.5 vmax; letter-spacing: 0.5px; color: hsla(0, 100%, 0%, 1); cursor: pointer; user-select: none; border-color: hsla(0, 0%, 70%, 1); outline: none; vertical-align: middle; border-top-left-radius: 20px; border-bottom-left-radius: 20px; background: hsla(40,100%,50%,1); border: 0.5px solid hsla(0, 0%, 60%, 1);"
+								readonly></input>
+						</div>
+						<div id="centralLocationoptionH" class="col-4 p-0">
+							<input onClick="handleConfigChange(event)" id='centralLocationoption'
+								value='Aglomeración' list="brow"
+								style="width: 100%; height: 100%;  font-family: Source Sans Pro; font-weight: bold; text-align: center;font-size: 1.5 vmax; letter-spacing: 0.5px; color: grey; cursor: pointer; user-select: none; border-color: hsla(0, 0%, 70%, 1); outline: none; vertical-align: middle;  background: hsla(280,100%,70%,0); border: 0.5px solid hsla(0, 0%, 60%, 1);"
+								readonly></input>
+						</div>
+						<div id="communitiesoptionH" class="col-4 p-0">
+							<input onClick="handleConfigChange(event)" id='communitiesoption' value='Comunidades'
+								list="brow"
+								style="width: 100%; height: 100%;  font-family: Source Sans Pro; font-weight: bold; text-align: center;font-size: 1.5 vmax; letter-spacing: 0.5px; color: grey; cursor: pointer; user-select: none; outline: none; vertical-align: middle; border-top-right-radius: 20px; border-bottom-right-radius: 20px; background: hsla(280,100%,50%,0); border: 0.5px solid hsla(0, 0%, 60%, 1);"
+								readonly></input>
+						</div>
+					</div>
+
+
+					<div id="play-Info-QuarantineH" class="container mt-3">
+						
+							<div id="playButtonH" class="col-6">
+								<input id='playbutton' onClick="playpauseSim(event)" value='Pausa' list="brow"
+									class="btn btn-sm btn-primary" readonly></input>
+							</div>
+
+							<div id="resetButtonH" class="col-6">
+								<input id='resetbutton' onClick="resetSim(event)" value='Reiniciar' list="brow"
+									class="btn btn-sm btn-secondary" readonly></input>
+							</div>
+
+						
+						
+						<div id="infoH"
+							style="width: 32%; height: 100%; position: relative; z-index: 1;display: inline-block; color: white; font-size: 1.3vmax; font-family: Source Sans Pro; overflow: auto;">
+							<div
+								style="display: table-cell; vertical-align: middle; text-align:left; height: 100%; width: 100%;">
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+			<!-- <div id="testGH" style="width: 100%; height: 100%; overflow: hidden;position: relative; z-index: 1;display: inline-block;"></div> -->
+		</div>
+
+		<script src="../js/main-mobile.js"></script>
+</body>
+<footer class="footer w-100">
+	<div id="titleH" class="text-secondary text-center">
+		<div id="title">
+			<p> <small>
+					<span>**El simulador funciona mejor con una Notebook o PC</span>
+					Versión original de <a href='https://prajwalsouza.github.io/'
+						style='text-decoration: none; cursor: pointer;' target='_blank'>Prajwal D'Souza,</a> código
+					disponible
+					<a href='https://github.com/prajwalsouza/Epidemic-Simulation/blob/master/Epidemic-Simulation-Web-Code.html'
+						style='text-decoration: none; cursor: pointer;' target='_blank'>aquí.</a> Basado en el video de
+					<a href='https://www.youtube.com/watch?v=gxAaO2rsdIs'
+						style='text-decoration: none; cursor: pointer;' target='_blank'>3Blue1Brown.</a>
+				</small></p>
+
+		</div>
+	</div>
+</footer>
+<html>

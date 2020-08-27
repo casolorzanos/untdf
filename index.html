@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="img/favicon.png" rel="shortcut icon"/>
+
+  <title>Simulador de epidemias</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164372853-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-164372853-1');
+  </script>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/agency.min.css" rel="stylesheet">
+
+  <style type="text/css">
+    #video .modal-dialog {
+      width: 874px !important;
+      max-width: 874px;
+      border: 10px white solid;
+      height: 500px;
+      min-height: 500px;
+    }    
+  </style>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Simulador de epidemias</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#proyecto">El proyecto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#equipo">Equipo de trabajo</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-heading text-uppercase">PROBÁ SIMULAR UNA EPIDEMIA</div>
+        <div class="intro-lead-in">Universidad Nacional de Tierra del Fuego,<br>Antártida e Islas del Atlántico Sur <br><br> Universidad Tecnológica Nacional</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#proyecto">Comenzar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section class="page-section" id="proyecto">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Sobre el simulador</h2>
+
+					<p>¿Distancia social? ¿Pacientes asintomáticos? ¿Diagnóstico y respuesta temprana? La pandemia de COVID-19 nos afecta a todos, y nos vemos envueltos en datos, gráficos y un lenguaje que desconocíamos.</p>
+
+					<p>Te proponemos un ejercicio con elementos comunes a todas las epidemias. Si bien es solo un modelo matemático (código adaptado de <a href="https://prajwalsouza.github.io/">Prajwal D'Souza</a>), algunos de sus resultados son fácilmente extrapolables a situaciones reales.</p>
+
+					<p>¿Qué podemos hacer para ayudar? Lo primero es no contagiarnos. Y si estamos contagiados, no propagar el virus, asumiendo conductas responsables. Tomar conciencia de cuáles son las consecuencias sociales de nuestros actos individuales.</p>
+
+          <a class="btn btn-secondary text-uppercase mb-5" href="https://docs.google.com/document/d/1hA1bK72uDwYiNr-NxnIZF57rytPOyTA1ZyjhMUlD1DY/edit" target="_blank">Más info sobre el modelo</a>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+        	<img src="img/infografia-contagio.png">
+          <h4 class="service-heading">Cadena de contagios</h4>
+          <p class="text-muted">Los puntos rojos y amarillos (asintomáticos) representan a las personas infectadas que pueden contagiar a otros. Los blancos son las personas sanas que podrían contagiarse y los celestes quienes se ya se recuperaron.</p>
+        </div>
+
+        <div class="col-md-4">
+        	<img src="img/infografia-tiempo.png">
+          <h4 class="service-heading">Línea de tiempo</h4>
+          <p class="text-muted">En esta gráfica podrás ver cómo se comporta el contagio a lo largo del tiempo según la configuración que vayas estableciendo, y estimar qué ocurrirá día tras día.</p>
+        </div>
+
+        <div class="col-md-4">
+        	<img src="img/infografia-parametros.png">
+          <h4 class="service-heading">Parámetros disponibles</h4>
+          <p class="text-muted">En el simulador estarás a cargo de las variables clave para manejar la epidemia. Por ejemplo: distanciamiento social ¡Dependerá de esos valores cuánta población se contagie! <a class="nav-link js-scroll-trigger" href="#parametros">Más información</a></p>
+        </div>
+
+      </div>
+
+      <div class="row text-center">
+        <div class="col">
+          <button type="button" class="btn btn-secondary btn-xl text-uppercase m-3" data-toggle="modal" data-target="#video">
+            Video explicativo
+          </button>
+          <a class="btn btn-primary btn-xl text-uppercase" href="simulador/simulador.html">Versión Web</a>
+          <a class="btn btn-primary btn-xl text-uppercase" href="simulador/simulador-mobile.html">Versión Móvil</a>
+        </div>
+  		</div>
+
+    </div>
+  </section>
+
+
+  <!-- Parameters -->
+  <section class="bg-light page-section" id="parametros">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="section-heading text-uppercase text-center">Sobre los parámetros</h2>
+
+          <p><strong>Distanciamiento social:</strong> En esta variable hemos agrupado los comportamientos que ayudan a dificultar la propagación del virus, tales como aumentar la distancia entre las personas, utilizar barbijo, utilizar máscaras, lavarse las manos frecuentemente, etc. Es decir, todo lo que pone una barrera entre una persona contagiada y quien no lo está, dificultando el contagio.</p>
+
+          <p><strong>Porcentaje de la población que obedece al distanciamiento social:</strong> ¿Dónde te colocas vos? Todos buscamos colaborar en esta crisis, y la primera y más eficaz forma de colaborar para quienes no trabajamos en el sistema de salud es hacer lo necesario para no contagiarnos, y si estamos contagiados (y un alto porcentaje no lo sabe) no contagiar a los demás. De nada sirve reaccionar con miedo, y mucho menos ser indiferente y saltearse las normas. La actitud que se requiere en estos casos es de calma, responsabilidad individual y cuidado consciente de nuestra comunidad.</p>
+
+          <p><strong>El sistema de salud se pone en marcha “x” días después del comienzo de la epidemia:</strong> Frente a una epidemia, más aún de un virus desconocido, montar un sistema de salud en condiciones de dar respuesta al desafío planteado lleva tiempo. Esto dependerá de múltiples factores como la experiencia previa en epidemias recientes (como es el caso de Corea del Sur), la capacidad de respuesta (en medios y personal) del sistema de Salud Pública y Privada las decisiones políticas frente a la crisis, etc. En esta simulación no  se muestran los efectos de saturación del sistema de salud, que llevan a un aumento de la mortalidad, el aumento del riesgo al que se somete al personal de salud producto de la fatiga y la escasez de medios, las decisiones dramáticas de bioética que obligan a elegir a qué paciente tratar y a quien dejar a su suerte, etc. Es fácil intuir esta situación cuando vemos un aumento abrupto en la cantidad de contagiados.</p>
+
+          <p><strong>El contagiado presenta síntomas “x” días después de producido el contagio:</strong> A falta de análisis rápidos, simples y económicos, la única forma de que el sistema de salud pueda detectar, tratar y aislar a una persona contagiada es que presente síntomas que lleven a consultar a su médico. En la medida en que la gente sea consciente y reaccione  frente a síntomas tempranos y leves de la enfermedad, antes consultará a su médico y será más fácil poder tratarlos y aislarlos hasta que se repongan. La capacidad de diagnóstico a través de análisis específicos permite intervenir tempranamente y aún sobre pacientes portadores que no presentan síntomas.</p>
+
+          <p><strong>Proporción “x” de los contagiados son asintomáticos, luego, no son detectados por el sistema de salud:</strong> Incluimos esta variable porque intuitivamente podríamos pensar que es ventajoso que muchas personas infectadas no presenten ningún síntoma. Y si bien es ventajoso para la persona, dificulta mucho poner en práctica barreras efectivas.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Team -->
+  <section class="page-section" id="equipo">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Equipo de trabajo</h2>
+          <h3 class="section-subheading text-muted mb-3">Somos un grupo de docentes-investigadores del Instituto de Desarrollo Económico e Innovación de la Universidad Nacional de Tierra del Fuego y de la Facultad Regional Tierra del Fuego de la Universidad Tecnológica Nacional, formados en áreas como las matemáticas, biología e informática. A continuación podrás conocer un poco más sobre nosotros.</h3>
+          <a class="btn btn-secondary btn-xl text-uppercase mb-5" href="https://forms.gle/ZqNfoAHkAdfm5FXF6">Dejanos tu comentario</a>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/edwin-pacheco.jpg" alt="">
+            <h4>Edwin Pacheco</h4>
+            <p>Es Matemático de la Universidad Nacional de Colombia y Doctor en Matemática de la Universidad Nacional de Córdoba. Actualmente es docente investigador de la UNTDF en la sede Río Grande.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/eugenia-bernaschini.jpg" alt="">
+            <h4>Eugenia Bernaschini</h4>
+            <p>Es Licenciada en Matemática y Doctora por la Universidad Nacional de Córdoba. Actualmente es docente de la Universidad Nacional de Tierra del Fuego, sede Río Grande.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/federico-gonzalez.jpg" alt="">
+            <h4>Federico González</h4>
+            <p>Es Licenciado en Informática, tiene un Máster en Ciudades Inteligentes por la Universidad de Girona y un Postgrado en Estrategias de Gobierno Abierto por la OEA. Doctorando en Inteligencia Artificial en la Universidad de Barcelona. Docente-investigador en la UNTDF.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/rodrigo-kataishi.jpg" alt="">
+            <h4>Rodrigo Kataishi</h4>
+            <p>Es Doctor en Economía, investigador del CONICET y profesor asociado en la UNTDF. Actualmente es Coordinador de Investigación, Vinculación y Extensión del IDEI-UNTDF. Ha publicado en tópicos que vinculan la tecnología con el desarrollo económico y social, especializándose en técnicas de Data Science, econometría y análisis cuantitativo.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/gabriela-razzitte.jpg" alt="">
+            <h4>Gabriela Razzitte</h4>
+            <p>Es Licenciada en Ciencias Biológicas. Jefa de la Unidad de Parasitología a cargo del Departamento Diagnóstico y Tratamiento, Hospital Gral de Agudos JM Ramos Mejía, CABA. Profesora de Metodología de la Investigación de la UTN en Ushuaia. Profesora titular de Parasitología, Universidad Maimónides.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/eduardo-howard.jpg" alt="">
+            <h4>Eduardo Howard</h4>
+            <p class="text-muted">Responsable por UTN</p>
+            <p>Es Licenciado en Ciencias Biológicas, Doctor por la Fac. de Ciencias Exactas (Biofísica) UNLP.
+Investigador de Conicet en el Instituto de Física de Líquidos y Sistemas Biológicos (IFLYSIB) - La Plata, en el área de estructura y dinámica de proteínas  y docente-investigador de la UTN en  Ushuaia.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/gabriel-koremblit.jpg" alt="">
+            <h4>Gabriel Koremblit</h4>
+            <p class="text-muted">Responsable por UNTDF</p>
+            <p>Es Licenciado en Ciencias Biológicas y Especialista en Docencia Universitaria. Director del Instituto de Desarrollo Económico e Innovación (IDEI) de la Universidad Nacional de Tierra del Fuego, Antártida e Islas del Atlántico Sur y Docente-investigador de la UNTDF y la UTN en Ushuaia.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-2"></div>
+
+      </div>
+
+<!--       
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        </div>
+      </div>
+ -->
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <span class="copyright">Código disponible en <a href="https://github.com/untdf-grupo-simulaciones/epidemias">Github</a></span>
+        </div>
+
+        <div class="col-md-4">
+        </div>
+        
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+              <a href="http://www.untdf.edu.ar/">UNTDF</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Video -->
+  <div class="modal fade" id="video" tabindex="-1" role="dialog" aria-labelledby="video" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <iframe width="854" height="480" src="https://www.youtube.com/embed?listType=playlist&list=PLqThwAgP3AhH28uCVr2r9a0QW4fyo3_I-" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/agency.min.js"></script>
+
+</body>
+
+</html>
