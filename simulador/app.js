@@ -3472,7 +3472,9 @@ function setUpPlotGraph() {
 	options = {}
 	options.x = 10*1.03
 	options.y = 20
+	//odificado por JPZ - Se cambia el valor de la variable por un texto menor
 	options.text = '1% Contagiados'
+	options.text = ""
 	options.fontSize = fontForLineLabel
 	options.textcolor = 'hsla(' + stateColors['infected'] + ',1)'
 	addText('plotG', 'infectedText', options)
@@ -4604,7 +4606,8 @@ function updatePlotGraph() {
 	updateText('plotG', 'susceptibleText', options)
 
 	options = {}
-	options.text = infectedV.toFixed(1) + '% contagiados'
+	//Modificado por JPZ - Cambio de vista de etiquetas con valores de porcentaje
+	options.text = infectedV.toFixed(1) //+ '% contagiados'
 	options.y = (infectedV)/2
 	if (ysusceptibleTextLoc - (infectedV)/2 < 15) {
 		options.y = ysusceptibleTextLoc - 15
