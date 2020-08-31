@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json.schemastore.org/web-manifest",
+  "short_name": "SimCOVIDTDF",
+  "name": "Simulador Educativo COVID",
+  "description": "description",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "../img/favicong.jpg",
+      "sizes": "96x96",
+      "type": "image/jpg"
+    },
+    {
+      "src": "../img/favicon2x.jpg",
+      "sizes": "144x144",
+      "type": "image/jpg"
+    }
+  ],
+  "background_color": "#EEE",
+  "theme_color": "#1565c0",
+  "start_url": "./?utm_source=web_app_manifest",
+  "display": "standalone",
+  "orientation": "any"
+}
