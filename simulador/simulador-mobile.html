@@ -31,9 +31,8 @@
 		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="manifest" href="manifest.json">
 
-
-	<link rel="icon" href="../square.png">
 
 	<style>
 		/* #universidades {
@@ -114,7 +113,69 @@
 			outline: none !important;
 			border: 0px solid black;
 		}
-	</style>
+		/* The switch - the box around the slider */
+		.switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+		}
+
+/* Hide default HTML checkbox */
+		.switch input {
+		opacity: 0;
+		width: 0;
+		height: 0;
+		}
+
+/* The slider */
+		.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+		}
+
+		.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+		}
+
+		input:checked + .slider {
+		background-color: #2196F3;
+		}
+
+		input:focus + .slider {
+		box-shadow: 0 0 1px #2196F3;
+		}
+
+		input:checked + .slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+		}
+
+/* Rounded sliders */
+		.slider.round {
+		border-radius: 34px;
+		}
+
+		.slider.round:before {
+		border-radius: 50%;
+		}
+</style>
 
 	<style id="sliderStyleH" type="text/css">
 		a {
@@ -220,6 +281,7 @@
 		input:invalid {
 			box-shadow: 0 0 0px hsla(0, 0%, 0%, 0);
 		}
+	
 	</style>
 
 
@@ -277,6 +339,7 @@
 							<span class="navbar-toggler-icon"></span>
 					</div>
 					<div class="col-9">
+						<!--Titulo de la APP - Cambiar por algo más reducido-->
 						<h6 id="universidades" class="w-100 text-light">UNTDF & UTN - Simulación interactiva de una
 							Epidemia
 						</h6>
@@ -297,6 +360,7 @@
 	<div class="row text-white" id="containAll">
 		<div class="row">
 			<div id="MainBlock1" class="col-lg-6 col-sm-6 col-xs-12">
+				<!--Título de ejes x e y; debe cambiarse la típologia-->
 				<div id="plotGraphH" class="bg-secondary" style=" width: 100%; height: 200px; overflow: hidden;position: relative; z-index: 1; display: inline-block;">
 					<div id="graphY">% Población</div>
 					<div id="graphX">Días</div>
@@ -358,14 +422,37 @@
 						</div>
 					</div>
 
-
-
 					<div class="row my-auto">
+						
+						
 						<div id="quarantineH" class="text-center align-self-center w-100">
-							<input onChange="handleQClick(event)" type="checkbox" id="quarantinecheck"
-								name="quarantinecheck" value="quarantinecheck"><label id="quarantinecheckLabel"
-								for="quarantinecheck"
-								style="color: var(--themeinfected); font-size: 2 vmax; font-weight: bold;">Con medidas del sistema de salud?</label>
+						<div>
+							<label id="medidasanitariascheckLabel"
+									for="medidasanitariascheck"
+									style="color: var(--themeinfected); font-size: 2 vmax; font-weight: bold;">
+									Medidas Sanitarias
+							</label>
+						</div>
+						<div>
+							<label class="switch">
+								<input type="checkbox" 
+								   	onchange="handleQClick(event)" 
+									id="medidasanitariascheck"
+									name="medidasanitariascheck"
+									value="medidasanitariascheck">  
+								<span class="slider round"></span>
+							</label>
+						</div>
+							
+							<!--Cambiar el estilo-->
+							<!--<input onchange="handleQClick(event)" type="checkbox" id="quarantinecheck"
+								name="quarantinecheck" value="quarantinecheck">
+								<label id="quarantinecheckLabel"
+									for="quarantinecheck"
+									style="color: var(--themeinfected); font-size: 2 vmax; font-weight: bold;">Medidas sanitarias
+								</label>
+							-->
+							
 						</div>
 					</div>
 					<div id="caseTypeChooseH" class="row">
