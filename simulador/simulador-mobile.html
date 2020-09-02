@@ -323,9 +323,7 @@
 			<div class="collapse" id="navbarToggleExternalContent">
 				<div id="parametersH">
 					<div id="gradfillParameters"></div>
-						<div id="parametersListH" class="container-fluid tex-center">
-
-						</div>
+						<div id="parametersListH" class="container-fluid tex-center"></div>
 				</div>
 			</div>
 			<nav class="navbar navbar-dark">
@@ -335,70 +333,41 @@
 							data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
 							aria-expanded="false" aria-label="Toggle navigation">
 
-
+						</button>
 							<span class="navbar-toggler-icon"></span>
 					</div>
 					<div class="col-9">
 						<!--Titulo de la APP - Cambiar por algo más reducido-->
-						<h6 id="universidades" class="w-100 text-light">UNTDF & UTN - Simulación interactiva de una
-							Epidemia
+						<h6 id="universidades" class="w-100 text-light">Simulador Educativo de Epidemias
 						</h6>
 					</div>
 				</div>
 
 
-				</button>
+			</nav>	
 		</div>
-		</nav>
+		
 	</div>
 
-	</div>
+	
 	<div class="row bg-secondary text-light" id="caseTypeNameH">
-		<span id="caseTypeName">Caso Simple: <small>una ciudad o pueblo, sin contacto con otras
-				poblaciones.</small></span>
+		<center>
+		<span id="caseTypeName">Simple: <small>ciudad o pueblo, sin contacto con otras
+				poblaciones.</small>
+		</span>
+		</center>
 	</div>
 	<div class="row text-white" id="containAll">
 		<div class="row">
 			<div id="MainBlock1" class="col-lg-6 col-sm-6 col-xs-12">
 				<!--Título de ejes x e y; debe cambiarse la típologia-->
 				<div id="plotGraphH" class="bg-secondary" style=" width: 100%; height: 200px; overflow: hidden;position: relative; z-index: 1; display: inline-block;">
+					<!--Titulo de Eje Y-->
 					<div id="graphY">% Población</div>
 					<div id="graphX">Días</div>
 				</div>
-				<!-- <div id="accordion">
-					<div class="card" style="background-color: #f0ad4e;">
-						<div class="card-header" id="headingOne">
-							<h6 class="mb-0">
-								<button class="btn btn-link w-100" data-toggle="collapse" data-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">
-									<div id="parametersTitleText">
-										<span class="text-white">PARÁMETROS</span>
-									</div>
-								</button>
-							</h6>
-						</div>
-
-						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-							data-parent="#accordion">
-							<div class="card-body">
-								<div id="parametersH">
-									<div id="gradfillParameters"></div>
-									<small>
-										<div id="parametersListH" class="container tex-right">
-
-										</div>
-									</small>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
-
+				
 				<div id="MainBlock2" class="col-lg-6 col-sm-6 col-xs-12">
-					<div id="upperLayer" hidden>
-						<!-- <span id="R_0" style="font-size: 1vmax; color: white; font-family: Source Sans Pro;">R : 0.1</span>
-						<span id="R_0-Info" style="font-size: 0.7vmax; color: grey; font-family: Source Sans Pro; float: right; top: 80%;">Reproductive Number Calculation here is a little different from the 3B1B video. <br/>Here, its Average(Number of individuals infected by one infected individual)</span> -->
-					</div>
 					<div class="row" style="height: 20em;">
 						<div class="col-12 bg-secondary">
 							<div id="simpleCaseGraphH"
@@ -423,8 +392,6 @@
 					</div>
 
 					<div class="row my-auto">
-						
-						
 						<div id="quarantineH" class="text-center align-self-center w-100">
 						<div>
 							<label id="medidasanitariascheckLabel"
@@ -444,48 +411,42 @@
 							</label>
 						</div>
 							
-							<!--Cambiar el estilo-->
-							<!--<input onchange="handleQClick(event)" type="checkbox" id="quarantinecheck"
-								name="quarantinecheck" value="quarantinecheck">
-								<label id="quarantinecheckLabel"
-									for="quarantinecheck"
-									style="color: var(--themeinfected); font-size: 2 vmax; font-weight: bold;">Medidas sanitarias
-								</label>
-							-->
-							
 						</div>
 					</div>
+					
+					<!--GRUPO DE BOTONES-->
 					<div id="caseTypeChooseH" class="row">
 						<div id="simpleCaseoptionH" class="col-4 p-0">
-							<input onClick="handleConfigChange(event)" id='simpleCaseoption' value='Simple' list="brow"
+							<input onClick="handleConfigChange(event)" id="simpleCaseoption" value="Simple" list="brow"
 								style="width: 100%; height: 100%;  font-family: Source Sans Pro; font-weight: bold; text-align: center;font-size: 1.5 vmax; letter-spacing: 0.5px; color: hsla(0, 100%, 0%, 1); cursor: pointer; user-select: none; border-color: hsla(0, 0%, 70%, 1); outline: none; vertical-align: middle; border-top-left-radius: 20px; border-bottom-left-radius: 20px; background: hsla(40,100%,50%,1); border: 0.5px solid hsla(0, 0%, 60%, 1);"
-								readonly></input>
-						</div>
-						<div id="centralLocationoptionH" class="col-4 p-0">
-							<input onClick="handleConfigChange(event)" id='centralLocationoption'
-								value='Aglomeración' list="brow"
+								readonly>
+							
+					</div>
+					<div id="centralLocationoptionH" class="col-4 p-0">
+							<input onClick="handleConfigChange(event)" id="centralLocationoption"
+								value="Aglomeración" list="brow"
 								style="width: 100%; height: 100%;  font-family: Source Sans Pro; font-weight: bold; text-align: center;font-size: 1.5 vmax; letter-spacing: 0.5px; color: grey; cursor: pointer; user-select: none; border-color: hsla(0, 0%, 70%, 1); outline: none; vertical-align: middle;  background: hsla(280,100%,70%,0); border: 0.5px solid hsla(0, 0%, 60%, 1);"
-								readonly></input>
-						</div>
-						<div id="communitiesoptionH" class="col-4 p-0">
-							<input onClick="handleConfigChange(event)" id='communitiesoption' value='Comunidades'
+								readonly>
+					</div>
+					<div id="communitiesoptionH" class="col-4 p-0">
+							<input onClick="handleConfigChange(event)" id="communitiesoption" value="Comunidades"
 								list="brow"
 								style="width: 100%; height: 100%;  font-family: Source Sans Pro; font-weight: bold; text-align: center;font-size: 1.5 vmax; letter-spacing: 0.5px; color: grey; cursor: pointer; user-select: none; outline: none; vertical-align: middle; border-top-right-radius: 20px; border-bottom-right-radius: 20px; background: hsla(280,100%,50%,0); border: 0.5px solid hsla(0, 0%, 60%, 1);"
-								readonly></input>
-						</div>
+								readonly>
+					</div>
 					</div>
 
 
 					<div id="play-Info-QuarantineH" class="container mt-3">
 						
 							<div id="playButtonH" class="col-6">
-								<input id='playbutton' onClick="playpauseSim(event)" value='Pausa' list="brow"
-									class="btn btn-sm btn-primary" readonly></input>
+								<input id="playbutton" onClick="playpauseSim(event)" value="Pausa" list="brow"
+									class="btn btn-sm btn-primary" readonly/>
 							</div>
 
 							<div id="resetButtonH" class="col-6">
-								<input id='resetbutton' onClick="resetSim(event)" value='Reiniciar' list="brow"
-									class="btn btn-sm btn-secondary" readonly></input>
+								<input id="resetbutton" onClick="resetSim(event)" value="Reiniciar" list="brow"
+									class="btn btn-sm btn-secondary" readonly>
 							</div>
 
 						
@@ -506,14 +467,17 @@
 		</div>
 
 		<script src="../js/main-mobile.js"></script>
+	</div>
 </body>
 <footer class="footer w-100">
+	
+	<!-- LLEVAR ESTO A UN SUBMENU
 	<div id="titleH" class="text-secondary text-center">
 		<div id="title">
 			<p> <small>
 					<span>**El simulador funciona mejor con una Notebook o PC</span>
-					Versión original de <a href='https://prajwalsouza.github.io/'
-						style='text-decoration: none; cursor: pointer;' target='_blank'>Prajwal D'Souza,</a> código
+					Versión original de <a href="https://prajwalsouza.github.io/"
+						style='text-decoration: none; cursor: pointer;' target='_blank'<a>Prajwal D'Souza,</a> código
 					disponible
 					<a href='https://github.com/prajwalsouza/Epidemic-Simulation/blob/master/Epidemic-Simulation-Web-Code.html'
 						style='text-decoration: none; cursor: pointer;' target='_blank'>aquí.</a> Basado en el video de
@@ -523,5 +487,6 @@
 
 		</div>
 	</div>
+   -->
 </footer>
-<html>
+</html>
