@@ -19,6 +19,6 @@
   "background_color": "#EEE",
   "theme_color": "#1565c0",
   "start_url": "./?utm_source=web_app_manifest",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "any"
 }
