@@ -2819,7 +2819,7 @@ function addText(graphname, textname, textoptions) {
   return [textElement, textoptions];
 }
 
-//Modificar esta funcion a fin de cambiar la orientacion de las etiquetas
+//JPZ Modificar esta funcion a fin de cambiar la orientacion de las etiquetas
 
 function updateText(graphname, textname, textvalues) {
   gdata = graphData[graphname];
@@ -4615,10 +4615,11 @@ function setUpPlotGraph() {
   removedLinePath = addPath("plotG", "removedLine", options)[0];
   removedLinePath.style.fill = "hsla(" + stateColors["removed"] + ",1)";
 
+  //Recuperados hsl(195, 100%, 50%)
   options = {};
   options.x = 10 * 1.03;
   options.y = 80;
-  options.text = "1% Recuperados";
+  options.text = "1%";
   options.fontSize = fontForLineLabel;
   options.textcolor = "hsl(195, 100%, 50%)";
   addText("plotG", "removedText", options);
@@ -4632,12 +4633,13 @@ function setUpPlotGraph() {
   susceptibleLinePath = addPath("plotG", "susceptibleLine", options)[0];
   susceptibleLinePath.style.fill = "hsla(" + stateColors["susceptible"] + ",1)";
 
+  //Susceptible "hsla(" + stateColors["susceptible"] + ",1)"
   options = {};
   options.x = 10 * 1.03;
   options.y = 50;
-  options.text = "1% Susceptibles";
+  options.text = "1%";
   options.fontSize = fontForLineLabel;
-  options.textcolor = "hsla(" + stateColors["susceptible"] + ",1)";
+  options.textcolor = "hsla(32, 0%, 70%, 0.6)";
   addText("plotG", "susceptibleText", options);
 
   options = {};
@@ -4649,12 +4651,13 @@ function setUpPlotGraph() {
   infectedLinePath = addPath("plotG", "infectedLine", options)[0];
   infectedLinePath.style.fill = "hsla(" + stateColors["infected"] + ",1)";
 
+  //Infectado hsla(" + stateColors["infected"] + ",1)"
   options = {};
   options.x = 10 * 1.03;
   options.y = 20;
-  options.text = "1% Contagiados";
+  options.text = "1%";
   options.fontSize = fontForLineLabel;
-  options.textcolor = "hsla(" + stateColors["infected"] + ",1)";
+  options.textcolor = "hsla(32, 100%, 50%,  1)";
   addText("plotG", "infectedText", options);
 }
 
@@ -6219,8 +6222,9 @@ function updatePlotGraph() {
     particleCountTimeLine[graphForParticle]["susceptible"]
   );
 
+  //JPZ Posicion del código donde se ajustan las leyendas de la izquierda
   options = {};
-  options.text = removedV.toFixed(1) + "% Recuperados";
+  options.text = removedV.toFixed(1) + "%"; //Se quita la leyenda recuperado
   options.y = (100 + infectedV + susceptibleV) / 2;
   yremovedTextLoc = (100 + infectedV + susceptibleV) / 2;
   if (dayCount >= 10) {
@@ -6229,7 +6233,7 @@ function updatePlotGraph() {
   updateText("plotG", "removedText", options);
 
   options = {};
-  options.text = susceptibleV.toFixed(1) + "% Susceptibles";
+  options.text = susceptibleV.toFixed(1) + "%"; //Se quita la leyenda susceptible
   options.y = (susceptibleV + infectedV + infectedV) / 2;
   ysusceptibleTextLoc = (susceptibleV + infectedV + infectedV) / 2;
   if ((100 - infectedV) / 2 < 15) {
@@ -6241,8 +6245,9 @@ function updatePlotGraph() {
   }
   updateText("plotG", "susceptibleText", options);
 
+  
   options = {};
-  options.text = infectedV.toFixed(1) + "% Contagiados";
+  options.text = infectedV.toFixed(1) + "%"; //Se quita la leyenda infectado
   options.y = infectedV / 2;
   if (ysusceptibleTextLoc - infectedV / 2 < 15) {
     options.y = ysusceptibleTextLoc - 15;
