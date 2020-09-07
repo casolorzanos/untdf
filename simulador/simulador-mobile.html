@@ -356,30 +356,37 @@
 	<!--Cambio de fondo sugerido por DG
 	<div class="row bg-secondary text-light" " id="caseTypeNameH" > -->
 		<div class = "row" style="font-size: medium;"> 
-		<div class = "container-fluid text-white text-white text-center" style="font-family: 'Montserrat', sans-serif; background-color: #f0ad4e " id="caseTypeNameH" > 
+		<div class = "container-fluid text-white text-center" style="font-family: 'Montserrat', sans-serif; background-color: #f0ad4e " id="caseTypeNameH" > 
 			<div>
 				<span id="caseTypeName" style="font-weight: bold;">Caso Simple:</span>
 			</div>	
 			<div> 	
-				<small>Ciudad o pueblo, sin contacto con otras
+				<small style="text-justify: auto;">Ciudad o pueblo, sin contacto con otras
 					poblaciones.</small>
 			</div>
 		</div>
 	</div>
-	
-	<div class="row text-white" id="containAll">
+
+	<div class="row text-white"  style="background-color: #ffffff;" id="containAll">
 		<div class="row">
 			<div id="MainBlock1" class="col-lg-6 col-sm-6 col-xs-12">
-				<!--Título de ejes x e y; debe cambiarse la típologia-->
-				<div id="plotGraphH" class="bg-secondary" style=" width: 100%; height: 200px; overflow: hidden;position: relative; z-index: 1; display: inline-block;">
-					<!--Titulo de Eje Y-->
-					<div id="graphY">% Población</div>
-					<!--Título de Eje X-->
-					<div id="graphX">Días</div>
-				</div>
 				
-				<div id="MainBlock2" class="col-lg-6 col-sm-6 col-xs-12">
-					<div class="row" style="height: 20em;">
+				<div id="plotGraphH" style=" width: 100%; height: 200px; overflow: hidden;position: relative; z-index: 1; display: inline-block;">
+					
+					<div id="graphY"></div>
+					
+					<div id="graphX"></div>
+			
+				</div>
+				<div class="container" id="graphX-Label">
+					<div class="row" style="color:black; font-size:xx-small; text-justify: auto;">
+						<div class="col-3" id="Recuperado" style="background-color: orange;">% Recuperado</div>
+						<div class="col-3" id="Suceptible" style="background-color: gray;">% Suceptible</div>
+						<div class="col-3" id="Contagiado" style="background-color: blue;">% Contagiado</div>
+					</div>
+				</div>
+			<div id="MainBlock2" class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="row" style="height: 20em; ">
 						<div class="col-12 bg-secondary">
 							<div id="simpleCaseGraphH"
 								style="width: 100%; height: 100%; overflow: hidden;position: absolute; z-index: 1;display: inline-block;">

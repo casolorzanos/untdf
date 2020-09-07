@@ -937,7 +937,7 @@ function updateGraphZoom(graphname, newMinMax) {
         if (darkmode == false) {
           textElement.style.fill = gdata.ymajorgridlabelcolor;
         } else {
-          textElement.style.fill = "hsla(0, 0%, 100%, 1)";
+          textElement.style.fill = 'hsla(210, 8%, 36%,1)';
         }
         svgElement.appendChild(textElement);
 
@@ -1018,9 +1018,11 @@ function updateGraphZoom(graphname, newMinMax) {
         }
         textElement.style.fontFamily = "Source Sans Pro";
         if (darkmode == false) {
-          textElement.style.fill = gdata.xmajorgridlabelcolor;
+          textElement.style.fill = 'hsla(210, 8%, 36%,1)';
+          //JPZ textElement.style.fill = gdata.xmajorgridlabelcolor;
         } else {
-          textElement.style.fill = "hsla(0, 0%, 100%, 1)";
+          textElement.style.fill = 'hsla(210, 8%, 36%,1)';
+          //JPZ textElement.style.fill = "hsla(0, 0%, 100%, 1)";
         }
         svgElement.appendChild(textElement);
 
@@ -1357,8 +1359,10 @@ function addGraph(parentdiv, name, gdata) {
   }
 
   if (darkmode) {
-    gdata.yaxiscolor = gdata.yaxiscolor || "hsla(0, 100%, 100%, 1)";
-    gdata.xaxiscolor = gdata.xaxiscolor || "hsla(0, 100%, 100%, 1)";
+    //JPZ cambio de color
+    gdata.yaxiscolor = gdata.yaxiscolor || "hsla(190, 100%, 100%, 1)";
+    //JPZA cambio de color
+    gdata.xaxiscolor = gdata.xaxiscolor || "hsla(190, 100%, 100%, 1)";
     gdata.xmajorgridlabelcolor =
       gdata.xmajorgridlabelcolor || "hsla(0, 100%, 100%, 1)";
     gdata.ymajorgridlabelcolor =
@@ -1745,7 +1749,8 @@ function addGraph(parentdiv, name, gdata) {
         textElement.style.fontSize = gdata.fontSize;
         textElement.style.fontFamily = "Source Sans Pro";
         textElement.style.userSelect = "none";
-        textElement.style.fill = gdata.xmajorgridlabelcolor;
+        textElement.style.fill = 'hsla(210, 8%, 36%,1)'
+        //JPZ textElement.style.fill = gdata.xmajorgridlabelcolor;
 
         svgElement.appendChild(textElement);
 
@@ -1753,19 +1758,19 @@ function addGraph(parentdiv, name, gdata) {
       }
     }
   }
-
-  gdata.xaxislabel = gdata.xaxislabel || "x axis";
-  gdata.yaxislabel = gdata.yaxislabel || "y axis";
+//JPZ
+  gdata.xaxislabel = gdata.xaxislabel || "";
+  gdata.yaxislabel = gdata.yaxislabel || "";
 
   gdata.xaxislabelshift = gdata.xaxislabelshift || 2;
   gdata.yaxislabelshift = gdata.yaxislabelshift || 2;
 
   if (darkmode) {
-    gdata.yaxislabelcolor = gdata.yaxislabelcolor || "hsla(190, 100%, 100%, 1)";
-    gdata.xaxislabelcolor = gdata.xaxislabelcolor || "hsla(190, 100%, 100%, 1)";
+    gdata.yaxislabelcolor = gdata.yaxislabelcolor || "hsla(210, 8%, 36%,1)";
+    gdata.xaxislabelcolor = gdata.xaxislabelcolor || "hsla(210, 8%, 36%,1)";
   } else {
-    gdata.yaxislabelcolor = gdata.yaxislabelcolor || "hsla(190, 0%, 0%, 1)";
-    gdata.xaxislabelcolor = gdata.xaxislabelcolor || "hsla(190, 0%, 0%, 1)";
+    gdata.yaxislabelcolor = gdata.yaxislabelcolor || "hsla(210, 8%, 36%,1)";
+    gdata.xaxislabelcolor = gdata.xaxislabelcolor || "hsla(210, 8%, 36%,1)";
   }
 
   if (gdata.xaxislabelvisibility == "yes") {
@@ -2813,6 +2818,8 @@ function addText(graphname, textname, textoptions) {
   graphData[graphname].textData[textname] = [textElement, textoptions];
   return [textElement, textoptions];
 }
+
+//Modificar esta funcion a fin de cambiar la orientacion de las etiquetas
 
 function updateText(graphname, textname, textvalues) {
   gdata = graphData[graphname];
